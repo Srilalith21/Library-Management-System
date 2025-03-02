@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contact Admin</title>
+    <link rel="stylesheet" href="../css_lib/user_contact_form.css">
+  </head>
+  <body>
+    <div class="mainPart">
+      <div class="contactForm">
+        <h3>Write Message</h3>
+        <p>
+          To, <span>Admin</span>
+        </p>  
+        <div class="textarea" style="height: 15rem; width: 25rem; overflow: hidden;">
+          <textarea style="color: black;" placeholder="Write your text Here" id="userMessage" cols="51" rows="15" style="border-radius: 10px;" style="outline: none;"></textarea>
+        </div>
+        <button id="submitMessageToAdmin">Submit</button>
+      </div>
+      <div class="inbox">
+        <div class="headingPart">
+          <h2>Admin Reply Messages</h2>
+        </div>
+        <div class="messagePart">
+          <table id="adminMessage" border="1">
+            <thead>
+              <tr>
+                <td>Message</td>
+                <td>Action</td>
+              </tr>
+            </thead>
+            <tbody id="adminMessageBody">
+              <!-- THIS IS HOW IT WILL BE REPRESENTED AT RUN TIME USING JS -->
+              <!-- <tr>
+                <td>HEllo</td>
+                <td>
+                  <button>Delete</button>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="footerPart">
+      <a href="./user.html">Back</a>
+    </div>
+  </body>
+  <script src="../javascript_lib/user_contact_form.js"></script>
+</html>

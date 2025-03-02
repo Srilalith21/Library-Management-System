@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  background-color: #4d5078;
+  color: rgb(0, 0, 0);
+}
+.page {
+  min-height: 41.7rem;
+  width: 100%;
+  background-color: rgb(77, 80, 121);
+}
+.nav {
+  height: 4.7rem;
+  width: 100%;
+  background-color: rgb(6, 6, 65);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left_part,
+.right_part {
+  height: 100%;
+  width: 49%;
+  margin: 0.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  cursor: pointer;
+}
+.left_part{
+  justify-content: space-around;
+  padding-left: 8%;
+}
+.right_part {
+  height: 100%;
+  width: 49%;
+  margin: 0.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  cursor: pointer;
+  font-size: larger;
+  font-weight: 800;
+}
+.right_part a,
+.left_part a {
+  color: aliceblue;
+  text-decoration: none;
+}
+.left_part a:hover{
+  border-bottom: 2px solid red;
+}
+.right_part a:hover{
+  border-bottom: 2px solid red;
+}
+.content {
+  height: 37rem;
+  width: 100%;
+  display: flex;
+  gap: 30px;
+}
+.left_content {
+  height: 90%;
+  width: 45%;
+  margin-left: 5%;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+  overflow: hidden;
+  color: #fff;
+  background-color: #262754;
+}
+.header_part {
+  height: 15%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #080240;
+  padding: 18px;
+}
+.bottom_part {
+  height: 90%;
+  width: 100%;
+  margin-left: 15%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  gap: 25px;
+}
+.total_books,
+.total_genere,
+.total_authors,
+.total_requests {
+  height: 10rem;
+  width: 8rem;
+  background-color: rgb(5, 5, 48);
+  border-radius: 20%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 8px #ff0000;
+  transition: 300ms;
+}
+.total_authors:hover {
+  box-shadow: 5px 5px 4px rgb(68, 255, 11);
+  /* margin-top: 10px; */
+}
+.total_books:hover {
+  box-shadow: 5px 5px 4px rgb(68, 255, 11);
+  /* margin-top: 10px; */
+}
+.total_genere:hover {
+  box-shadow: 5px 5px 4px rgb(68, 255, 11);
+  /* margin-top: 10px; */
+}
+.total_requests:hover {
+  box-shadow: 5px 5px 4px rgb(68, 255, 11);
+  /* margin-top: 10px; */
+}
+.right_content {
+  height: 90%;
+  width: 45%;
+  margin-top: 3%;
+  margin-right: 5%;
+  background-color: rgb(13, 7, 43);
+  border-radius: 5%;
+  overflow: hidden;
+}
+.right-content-header {
+  height: 15%;
+  width: 100%;
+  background-color: rgb(8, 2, 65);
+  text-align: center;
+  color: #fff;
+}
+.right-content-section {
+  height: 85%;
+  width: 100%;
+  background-color: rgb(37, 38, 83);
+  overflow-y: scroll;
+}
+.table-heading-area {
+  height: 2rem;
+  width: 100%;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+.table-head-tag {
+  font-weight: 700;
+}
+.table-heading-area thead td {
+  padding: 15px;
+  text-decoration: underline;
+}
+tr td {
+  padding: 5px;
+}
+td button {
+  height: 1.3rem;
+  width: 3rem;
+  margin-left: 5px;
+  border-radius: 10px;
+  border: none;
+}
+td button:hover {
+  background-color: rgb(255, 166, 0);
+}

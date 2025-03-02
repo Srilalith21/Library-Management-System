@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Books</title>
+    <link rel="stylesheet" href="../css_lib/admin_books.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="nav">
+        <h2>Books List</h2>
+        <div class="search-component">
+          <a href="./admin.html">Back</a>
+          <a href="./admin_add_books.html">AddBook</a>
+          <div>
+            <input type="text" placeholder="Find Book" id="bookSearch"/>
+            <button id="searchBookButton">Search</button>
+          </div>  
+        </div>
+      </div>
+      <div class="content">
+        <div class="table-div">
+          <table border="1" class="table-data" id="table-data">
+            <thead class="t-head-tag">
+              <tr>
+                <td>Book-ID</td>
+                <td>Name</td>
+                <td>Author</td>
+                <td>Genere</td>
+                <td>Price</td>
+                <td>Publish-Year</td>
+                <td>Action</td>
+              </tr>
+            </thead>
+            <tbody class="t-body" id="t-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </body>
+  <script src="../javascript_lib/admin_books.js"></script>
+</html>

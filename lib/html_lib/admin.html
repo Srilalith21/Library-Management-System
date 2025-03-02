@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LMS Admin Portel</title>
+    <link rel="stylesheet" href="../css_lib/admin.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="nav">
+        <div class="left_part">
+          <a href="./admin_books.html">Books</a>
+          <a href="./admin_addCandidata.html">AddLibraryCandidate</a>
+          <p onclick="deleteAllUserData()">DeleteAllUserData</p>
+        </div>
+        <div class="right_part">
+          <p>Welcome : Admin</p>
+          <a href="../../index.html">Logout</a>
+        </div>
+      </div>
+      <div class="content" id="content">
+        <div class="left_content">
+          <div class="header_part">
+            <h1 style="text-align: center;">Total</h1>
+          </div>
+          <div class="bottom_part">
+            <!-- Add ID's so that you can add content in it -->
+            <div class="total_books" id="total-books"></div>
+            <div class="total_genere" id="total-genere"></div>
+            <div class="total_authors" id="total-authors"></div>
+            <div class="total_requests" id="total-requests"></div>
+          </div>
+        </div>
+        <div class="right_content">
+          <div class="right-content-header">
+            <h1 style="padding: 15px;">Requests</h1>
+          </div>
+          <div class="right-content-section">
+            <table class="table-heading-area" border="1" id="table-content">
+              <thead class="table-head-tag">
+                <td>User Id</td>
+                <td>Message</td>
+                <td>Action</td>
+              </thead>
+              <tbody id="table-body"></tbody>
+              <!-- This is the sample structure of table body data  -->
+                <!-- <td>usr#001</td>
+                <td>Lorem,.</td>
+                <td>
+                  <button>Yes</button>
+                  <button>No</button>
+                </td> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../javascript_lib/admin.js"></script>
+</html>

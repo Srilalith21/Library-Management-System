@@ -1,0 +1,80 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  background-color: #dadada;
+  color: white;
+}
+.page{
+  height: 41.7rem;
+  width: 100%;
+  background-color: #c5c5c5;
+}
+.nav{
+  height: 4.7rem;
+  width: 100%;
+  background-color: rgb(6, 6, 78);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.search-component{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.search-component input{
+  height: 2rem;
+  width: 18rem;
+  text-align: center;
+  outline: none;
+}
+.search-component button{
+  height: 2rem;
+}
+.search-component a{
+  color: white;
+  text-decoration: none;
+}
+.search-component div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.content{
+  height: 37rem;
+  width: 100%;
+  overflow-y: scroll;
+}
+.table-div{
+  height: auto;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  overflow: hidden;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border-radius: 20px;
+}
+.t-head-tag tr td{
+  padding: 10px;
+  font-size: larger;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: underline;
+  color: black;
+}
+.t-body tr td{
+  text-align: center;
+  padding: 10px;
+  color: black;
+}

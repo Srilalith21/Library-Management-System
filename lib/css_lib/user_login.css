@@ -1,0 +1,75 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: whitesmoke;
+}
+body{
+  background-color: rgb(24, 34, 59);
+}
+.page{
+  height: 41rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-form{
+  height: 23rem;
+  width: 25rem;
+  background-color: rgb(45, 41, 78);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.heading{
+  margin-top: 15px;
+}
+.display-label{
+  font-size: medium;
+  font-weight: 300;
+}
+.username{
+  padding-right: 13rem;
+  margin-bottom: -10px;
+}
+.userpassword{
+  padding-right: 11.9rem;
+  margin-top: -30px;
+  margin-bottom: -10px;
+}
+.input-tag{
+  height: 2rem;
+  width: 18rem;
+  outline: none;
+  border: none;  
+  border-radius: 3px;
+  text-align: center;
+  color: #000000;
+}
+.login-button{
+  height: 2rem;
+  width: 7em;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  color: black;
+}
+.login-button:hover{
+  color: white;
+  background-color: blue;
+
+}
+.links a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin: 15px;
+  cursor: pointer;
+}
+.links a:hover{
+  color:blue;
+  text-decoration: underline;
+}

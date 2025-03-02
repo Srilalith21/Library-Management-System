@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin Login</title>
+  </head>
+  <style>
+    *{
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: whitesmoke;
+    }
+    body{
+      background-color: #161d30;
+    }
+    .page{
+      height: 41.6rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+    .page input{
+      outline: none;
+      text-align: center;
+      height: 2rem;
+      width: 20rem;
+      border: 1px transparent;
+      border-radius: 4px;
+      color: black;
+    }
+    .page button{
+      border-radius: 15px;
+      border: 1px transparent;
+      height: 1.5rem;
+      width: 6rem;
+      color: black;
+    }
+    .page button:hover{
+      background-color: blue;
+      color: wheat;
+    }
+  </style>
+  <body>
+    <div class="page">
+      <h1>Administration</h1>
+      <input type="text" placeholder="User Name" id="username" autocomplete="off">
+      <input type="password" placeholder="User Password" id="userpassword">
+      <button id="loginbutton">Login</button>
+      <a style="margin-top: -10px; text-decoration: none;" href="../../index.html">Back</a>
+    </div>
+  </body>
+  <script>
+    const loginbutton = document.getElementById("loginbutton")
+    loginbutton.onclick = () => {
+      const adminName = document.getElementById("username").value
+      const adminPassword = document.getElementById("userpassword").value
+      if(adminName == "Admin" && adminPassword == "Admin@01001"){
+        location.href = "./admin.html"
+      }else{
+        alert("Invalid adminName or password")
+      }
+    }
+  </script>
+</html>

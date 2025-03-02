@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Add Candidate</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      width: 100%;
+      background-color: #dadada;
+    }
+
+    .page {
+      height: 41rem;
+    }
+
+    .header {
+      height: 4rem;
+      background-color: rgb(3, 3, 73);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .header a:hover{
+      color: red;
+    }
+
+    .content {
+      height: 37rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .addCandidateDiv {
+      height: 30rem;
+      width: 40rem;
+      background-color: rgb(46, 49, 78);
+      border-radius: 15px;
+      display: flex;
+      gap: 30px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #dadada;
+    }
+    .addCandidateDiv input {
+      outline: none;
+      height: 2.6rem;
+      width: 20rem;
+      border-radius: 10px;
+      border: 2px transparent;
+      text-align: center;
+      font-size: medium;
+      font-weight: 400;
+    }
+    .addCandidateDiv p button {
+      height: 2rem;
+      width: 7rem;
+      border-radius: 10px;
+      outline: none;
+      border: 2px transparent;
+    }
+    button:hover {
+      background-color: blue;
+      color: white;
+    }
+    #libId {
+      padding-top: 12px;
+      outline: none;
+      height: 2.6rem;
+      width: 20rem;
+      background-color: #fff;
+      color: black;
+      border-radius: 10px;
+      border: 2px transparent;
+      text-align: center;
+      font-size: medium;
+      font-weight: 400;
+    }
+    #libId:hover {
+      cursor: not-allowed;
+    }
+  </style>
+
+  <body>
+    <div class="page">
+      <div class="header">
+        <h2 style="margin-left: 5rem">Add Candidate Form</h2>
+        <a
+          href="./admin.html"
+          style="
+            text-decoration: none;
+            color: rgb(196, 196, 196);
+            margin-right: 5rem;
+            font-size: larger;
+          "
+          >Back
+        </a>
+      </div>
+      <div class="content">
+        <!-- Add Candidate Form -->
+        <div class="addCandidateDiv">
+          <h2>Add Candidate</h2>
+          <p id="libId"></p>
+          <p><input type="text" placeholder="Name" id="name" required /></p>
+          <p>
+            <input type="text" placeholder="Mobile Number" id="mobileNumber" />
+          </p>
+          <p><input type="email" placeholder="Email-Id" id="emailId" /></p>
+          <p><input type="number" placeholder="Age" id="age" /></p>
+          <p><button onclick="callClick()">Submit</button></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+
+    const values = ["name", "mobileNumber", "emailId", "age"];
+    const sbtButton = document.getElementById("submitBtn");
+
+    let libData = [];
+    let ID
+
+    function getData() {
+      let temp = JSON.parse(localStorage.getItem("libdata"));
+      let tempCount = JSON.parse(localStorage.getItem("libCount"));
+      if(tempCount == null) {console.log("Library Count has been Deleated"); return}
+      ID = ++tempCount;
+      document.getElementById("libId").innerHTML = "#Lbr_" + ID
+      if (temp == null) return;
+      for (let i = 0; i < temp.length; i++) {
+        libData.push(temp[i]);
+      }
+    }
+
+    getData();
+
+    let data = {
+      id: "#Lbr_" + ID,
+      name: null,
+      mobileNumber: null,
+      emailId: null,
+      age: null,
+    }
+
+    function getInputDataAndValidate() {
+      for (let i = 0; i < values.length; i++) {
+        if (
+          i == 1 &&
+          isNaN(parseInt(document.getElementById(values[i]).value))
+        ) {
+          alert("Invalid Mobile Number");
+          return false;
+        }
+        if (document.getElementById(values[i]).value == "") {
+          alert("Please Fill The Form");
+          return false;
+        }
+        data[values[i]] = document.getElementById(values[i]).value;
+      }
+      if(checkDuplicates()) return false
+      return true;
+    }
+
+    function checkDuplicates(){
+      if(libData == "") return
+      for(let i=0; i<libData.length; i++){
+        if(
+          libData[i].mobileNumber == data.mobileNumber || libData[i].emailId.toLowerCase() == data.emailId.toLowerCase()
+        ){
+          let dupValue = (libData[i].mobileNumber == data.mobileNumber? "Mobile Number":"Email-ID")
+          alert(dupValue + " Cannot be Same")
+          return true
+        }
+      }
+      return false
+    }
+
+    function callClick(){
+      if(!getInputDataAndValidate()) return
+      postData()
+    }
+
+    function postData(){
+      libData.push(data)
+      localStorage.setItem("libdata",JSON.stringify(libData))
+      localStorage.setItem("libCount",JSON.stringify(ID))
+      alert("Inserted Successfully")
+      location.reload()
+    }
+    
+  </script>
+</html>

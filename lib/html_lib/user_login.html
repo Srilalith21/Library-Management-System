@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>User Login</title>
+    <link rel="stylesheet" href="../css_lib/user_login.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="login-form">
+        <h1 class="heading">Login</h1>
+        <p>
+          <label>
+            <p class="display-label username">UserEmail</p>
+            <input
+              placeholder="user email : example@gmail.com"
+              type="text"
+              id="user-email"
+              class="input-tag"
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            <p class="display-label userpassword">UserPassword</p>
+            <input
+              type="password"
+              id="user-password"
+              placeholder="user password"
+              class="input-tag"
+            />
+          </label>
+        </p>
+        <button class="login-button" id="login-button">Login</button>
+        <div class="links">
+          <a href="./user_registration.html">Register</a>
+          <a onclick="navigateToHome()">Back</a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+
+    const loginbutton = document.getElementById("login-button")
+    let userid
+    let userdata = []
+    getDataFromDB()
+
+    function getDataFromDB(){
+      let data = JSON.parse(localStorage.getItem("userData"))
+      if(data != null){
+        let i = 0
+        while(i < data.length){
+          userdata.push(data[i])
+          i++
+        }
+      }
+    }
+
+    let findEmailAndPass = (user_email,user_password) => {
+      if(user_email != "" && user_password != ""){
+        let i = 0,j = userdata.length-1
+        while(i <= j){
+          if
+          (
+            (userdata[i].email == user_email &&
+            userdata[i].password == user_password)
+            ||
+            (userdata[j].email == user_email &&
+            userdata[j].password == user_password)
+          ) {
+            userid = ((userdata[i].email == user_email &&
+            userdata[i].password == user_password)?userdata[i].userID:userdata[j].userID)
+            return true
+          }
+          i++,j--
+        }
+      }
+      else{
+        return false
+      }
+    }
+
+    loginbutton.addEventListener("click",() => {
+      const email = document.getElementById("user-email").value
+      const password = document.getElementById("user-password").value
+
+      if(findEmailAndPass(email,password)){
+        sessionStorage.setItem("user_ID",JSON.stringify(userid))
+        location.href = "./user.html"
+      }else{
+        alert("Invalid username or password")
+      }
+    })
+
+    function navigateToHome(){
+      sessionStorage.removeItem("userid")
+      location.href = "../../index.html"
+    }
+  </script>
+</html>

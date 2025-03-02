@@ -1,0 +1,131 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  background-color: #050922;
+}
+.absPage{
+  height: 41.6rem;
+  width: 100%;
+  /* background-color: rgba(0, 0, 0, 0.822); */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -99;
+}
+.absPageContent{
+  height: 30rem;
+  width: 35rem;
+  background-color: rgb(40, 37, 71);
+}
+.absHeader{
+  height: 4rem;
+  width: 100%;
+  background-color: #10275e;
+  color: wheat;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.absHeader p{
+  cursor: pointer;
+}
+.absHeader p:hover{
+  border-bottom: 2px solid white;
+  color: red;
+}
+.absContent{
+  height: 29rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+.absContent p{
+  border-radius: 20px;
+  height: 3rem;
+  width: 25rem;
+  background-color: rgb(148, 146, 146);
+  text-align: center;
+  font-size: large;
+  color: #080c30;
+  padding-top: 14px;
+  box-shadow: 2px 2px 4px rgb(11, 4, 77);
+}
+.main-content-page{
+  height: 41.6rem;
+  width: 100%;
+  background-color: #050922;
+}
+.main-header{
+  height: 4.6rem;
+  width: 100%;
+  background-color: rgb(22, 28, 83);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.main-header a{
+  color: white;
+  font-size: large;
+  text-decoration: none;
+}
+.main-header a:hover{
+  color: red;
+}
+.main-content{
+  min-height: 37rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  padding-top: 25px;
+  padding-bottom: 30px;
+}
+.content{
+  height: 6rem;
+  width: 40rem;
+  background-color: rgb(143, 143, 143);
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px #5860aa;
+  overflow: hidden;
+  display: flex;
+}
+.leftcontent{
+  height: 6rem;
+  width: 85%;
+  background-color: rgb(27, 32, 54);
+  padding-top: 2em;
+  text-align: center;
+  color: rgb(190, 186, 186);
+}
+.rightcontent{
+  height: 6rem;
+  width: 15%;
+  background-color: rgb(25, 36, 53);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rightcontent p{
+  cursor: pointer;
+  color: whitesmoke;
+}
+.rightcontent p:hover{
+  color: black;
+  text-decoration: underline;
+}

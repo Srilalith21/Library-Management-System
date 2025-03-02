@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library.com</title>
+  </head>
+  <style>
+    *::selection{
+      background-color: rgb(21, 255, 0);
+      color: rgb(0, 0, 0);
+    }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    body{
+      background-color: #dadada;
+    }
+    .background{
+      height: 41.6rem;
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+    .background img{
+      height: 41.6rem;
+      width: 100%;
+    }
+    .main{
+      height: 41.6rem;
+      background-color: rgba(0, 0, 0, 0.527);
+    }
+    .main .nav{
+      height: 5rem;
+      width: 100%;
+      background-color: rgba(58, 49, 49, 0.76);
+      color: aliceblue;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px;
+    }
+    .links a{
+      margin: 20px;
+      color: white;
+      font-size: large;
+      text-decoration: none;
+    }
+    .links a:hover{
+      color: rgb(169, 169, 197);
+      text-decoration: underline;
+    }
+    .content{
+      height: 36.6rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      color: rgb(219, 214, 205);
+    }
+    @media (max-width : 450px) {
+      .background{
+        height: 54rem;
+        width: 30rem;
+        position: absolute;
+        z-index: -1;
+      }
+      .background img{
+        height: 54rem;
+        width: 30rem;
+      }
+      .main{
+        height: 54rem;
+      }
+    }
+  </style>
+  <body>
+    <div class="background">
+      <img src="./images/backgroundimge.jpg" alt="">
+    </div>
+    <div class="main">
+      <div class="nav">
+        <h2>Library Management System </h2>
+        <div class="links">
+          <a href="./lib/html_lib/user_login.html">Login</a>
+          <a href="./lib/html_lib/admin_login.html">Admin</a>
+        </div>
+      </div>
+        <div class="content">
+          <h3>Welcome to Library Management System</h2>
+          <p>
+            In our librery management system<br>
+            You can perform <b>CRUD<b> operations
+          </p>
+        </div>
+    </div>
+  </body>
+</html>

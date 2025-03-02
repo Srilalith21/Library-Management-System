@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LMS StudentPortel</title>
+    <link rel="stylesheet" href="../css_lib/user.css">
+  </head>
+  <body>
+    <div class="page">
+      <div class="nav" id="nav">
+        <p style="cursor: pointer;" onclick="verification(this.innerHTML)">MyPurchases</p>
+        <p onclick="verification(this.innerHTML)" style="cursor: pointer;">ContactAdminAndInbox</p>
+        <div class="search-div">
+          <input type="text" placeholder="Search Here" id="searchBookInput">
+          <button id="search-book">Search</button>
+        </div>
+        <label>Genere:
+          <select class="select-tag" id="select-tag">
+            <option value="All">All</option>
+          </select>
+        </label>
+        <p id="logout">
+          Logout
+        </p>
+      </div>
+      <div class="section">
+        <div class="top-book-div" >
+          <!-- Added Content using JS -->
+          <div class="headingTopBook">
+            <h1 style="text-align: center; padding: 10px;color: white;">Top Book</h1><hr>
+          </div>
+          <div class="contentTopBook">
+            <h2 id="top-book"></h2>
+            <h5 id="price"></h5>
+          </div>
+        </div>
+        <h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Books</h1>
+        <!-- This div gets data in the runtime -->
+        <div class="books-div" id="books-div"></div>
+      </div>
+      <div class="footer">
+        <p>&copy made with dedication</p>
+      </div>
+    </div>
+  </body>
+  <script src="../javascript_lib/user.js"></script>
+</html>

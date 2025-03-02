@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin Add Book</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    body {
+      background-color: #dadada;
+    }
+    .nav {
+      height: 5rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: rgb(5, 5, 77);
+      color: white;
+    }
+    .nav a {
+      color: white;
+      text-decoration: none;
+    }
+    .add-book-form {
+      height: 30rem;
+      width: 70%;
+      background-color: rgb(147, 147, 150);
+      margin-left: 15%;
+      margin-right: 15%;
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+    .add-book-top {
+      height: 5rem;
+      width: 100%;
+      text-align: center;
+      padding: 30px;
+    }
+    .add-book-content {
+      height: 25rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .add-book-content label {
+      height: 4rem;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .add-book-content input {
+      height: 2.5rem;
+      width: 25rem;
+      outline: none;
+      border-radius: 7px;
+      text-align: center;
+      margin-left: 25px;
+      font-size: medium;
+    }
+    .add-book-content button {
+      height: 2rem;
+      width: 10rem;
+      border: none;
+      /* outline: none; */
+      border-radius: 10px;
+    }
+    .add-book-content button:hover {
+      background-color: blue;
+      color: white;
+    }
+  </style>
+  <!--  -->
+  <body onload="getDataFromDB()">
+    <div class="nav">
+      <h2>Add Book</h2>
+      <a href="./admin_books.html">Back</a>
+    </div>
+
+    <div class="content">
+      <div class="add-book-form">
+        <div class="add-book-top">
+          <h2>Add Book</h2>
+        </div>
+        <hr />
+        <div class="add-book-content" id="add-book-content">
+          <label
+            >Book Name :
+            <input type="text" placeholder="Enter Book Name" id="book-name" required
+          /></label>
+          <label
+            >Book Author :
+            <input type="text" placeholder="Enter Book Author" id="book-author"
+          /></label>
+          <label
+            >Book Genere :
+            <input type="text" placeholder="Enter Book Genere" id="book-genere"
+          /></label>
+          <label
+            >Book Price :
+            <input type="text" placeholder="Enter Book Price" id="book-price"
+          /></label>
+          <label
+            >Book Publish Year :
+            <input
+              type="date"
+              placeholder="Enter Book Publish Year"
+              id="book-publish-year"
+          /></label>
+          <button onclick="putDataIntoDB()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!--  -->
+  <script>
+    const reloadSection = document.getElementById("add-book-submit");
+    const values_arr = [
+      "book-name",
+      "book-author",
+      "book-genere",
+      "book-price",
+      "book-publish-year",
+    ];
+    let book_id = 2130;
+    // This is The Original Data
+    let books_data = [];
+
+    // submit.onclick = putDataIntoDB()
+
+    function check_duplicates(value) {
+      for (let i = 0; i < books_data.length; i++) {
+        if(books_data[i].book_name.toLowerCase() === value.toLowerCase()){
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function check_data() {
+      for (let i = 0; i < values_arr.length; i++) {
+        let temp = document.getElementById(values_arr[i]).value;
+        if(i == 0 && check_duplicates(temp)){
+          alert("Book Name Cannot Be Same")
+          return false;
+        }
+        if (i == 3) {
+          try {
+            JSON.parse(temp);
+          } catch (error) {
+            alert("Price Should Be Number");
+            return false;
+          }
+        } else if (temp == "" || temp == null) {
+          alert("Please Fill The Data : " + values_arr[i]);
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function getDataFromDB() {
+      let temp = JSON.parse(localStorage.getItem("books"));
+      if (temp != null){
+        book_id = JSON.parse(localStorage.getItem("id_count"));
+        for (let i = 0; i < temp.length; i++) {
+          books_data.push(temp[i]);
+        }
+      }
+    }
+
+    function putDataIntoDB() {
+      book_id = book_id + 1;
+      if (check_data()) {
+        local_data = {
+          "book_id": "#book_" + book_id,
+          "book_name": document.getElementById(values_arr[0]).value,
+          "book_author": document.getElementById(values_arr[1]).value,
+          "book_genere": document.getElementById(values_arr[2]).value,
+          "book_price": JSON.parse(document.getElementById(values_arr[3]).value),
+          "book_publish_year": document.getElementById(values_arr[4]).value,
+        };
+        books_data.push({ ...local_data });
+        localStorage.setItem("books",JSON.stringify(books_data));
+        localStorage.setItem("id_count",book_id);
+        alert("Added Successfully")
+        location.reload();
+      }
+    }
+  </script>
+</html>
