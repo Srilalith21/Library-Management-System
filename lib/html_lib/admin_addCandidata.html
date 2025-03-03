@@ -137,7 +137,7 @@
     function getData() {
       let temp = JSON.parse(localStorage.getItem("libdata"));
       let tempCount = JSON.parse(localStorage.getItem("libCount"));
-      if(tempCount == null) {localStorage.setItem("libCount",8921+2); return}
+      if(tempCount == null) {tempCount = 8921+2;localStorage.setItem("libCount",8921+2);}
       ID = ++tempCount;
       document.getElementById("libId").innerHTML = "#Lbr_" + ID
       if (temp == null) return;
